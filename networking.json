@@ -53,5 +53,14 @@
                 "SecurityGroupEgress": []
             }
         }
+    },
+    "Outputs": {
+        "PublicSubnetAvailibilityZone" : {
+            "Description" : "Information about the value",
+            "Value" : { "Fn::GetAtt" : [ { "Ref" : "PublicSubnet"}, "AvailabilityZone" ] },
+            "Export" : {
+              "Name" : "Value to export"
+            }
+          }
     }
 }
