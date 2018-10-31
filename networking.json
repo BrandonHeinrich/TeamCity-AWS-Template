@@ -1,0 +1,54 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "VPC": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock" : "10.0.0.0/16"
+            }
+        },
+        "PublicSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {"Ref": "VPC"},
+                "CidrBlock" : "10.0.1.0/24",
+                "MapPublicIpOnLaunch": true
+            }
+        },
+        "PrivateSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {"Ref": "VPC"},
+                "CidrBlock" : "10.0.2.0/24",
+                "MapPublicIpOnLaunch": false
+            }
+        },
+        "TeamCityServerSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "VpcId": {"Ref": "VPC"},
+                "GroupName": "TeamCityServerSecurityGroup",
+                "SecurityGroupIngress": [],
+                "SecurityGroupEgress": []
+            }
+        },
+        "TeamCityAgentSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "VpcId": {"Ref": "VPC"},
+                "GroupName": "TeamCityAgentSecurityGroup",
+                "SecurityGroupIngress": [],
+                "SecurityGroupEgress": []
+            }
+        },
+        "TeamCityDatabaseSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "VpcId": {"Ref": "VPC"},
+                "GroupName": "TeamCityDatabaseSecurityGroup",
+                "SecurityGroupIngress": [],
+                "SecurityGroupEgress": []
+            }
+        }
+    }
+}
