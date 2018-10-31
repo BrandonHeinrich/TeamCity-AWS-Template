@@ -28,6 +28,7 @@
             "Properties": {
                 "VpcId": {"Ref": "VPC"},
                 "GroupName": "TeamCityServerSecurityGroup",
+                "GroupDescription" : "Security group for the TeamCity Server",
                 "SecurityGroupIngress": [],
                 "SecurityGroupEgress": []
             }
@@ -37,6 +38,7 @@
             "Properties": {
                 "VpcId": {"Ref": "VPC"},
                 "GroupName": "TeamCityAgentSecurityGroup",
+                "GroupDescription" : "Security group for TeamCity agents",
                 "SecurityGroupIngress": [],
                 "SecurityGroupEgress": []
             }
@@ -46,6 +48,7 @@
             "Properties": {
                 "VpcId": {"Ref": "VPC"},
                 "GroupName": "TeamCityDatabaseSecurityGroup",
+                "GroupDescription" : "Security group for the TeamCity database",
                 "SecurityGroupIngress": [],
                 "SecurityGroupEgress": []
             }
